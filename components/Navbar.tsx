@@ -2,6 +2,7 @@ import { useCallback, useState } from "react";
 import MobileMenu from "./MobileMenu";
 import NavbarItem from "./NavbarItem";
 import { BsBell, BsChevronDown, BsSearch } from "react-icons/bs";
+import AccountMenu from "./AccountMenu";
 
 const Navbar = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -40,6 +41,7 @@ const Navbar = () => {
 							<img src="/images/default-blue.png" alt="Profile image" />
 						</div>
 						<BsChevronDown className="text-white transition" />
+						<AccountMenu visible />
 					</div>
 				</div>
 			</div>
