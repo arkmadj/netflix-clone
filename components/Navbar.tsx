@@ -6,9 +6,14 @@ import AccountMenu from "./AccountMenu";
 
 const Navbar = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
+	const [showAccountMenu, setShowAccountMenu] = useState(false);
 
 	const toggleMobileMenu = useCallback(() => {
 		setShowMobileMenu((current) => !current);
+	}, []);
+
+	const toggleAccountMenu = useCallback(() => {
+		setShowAccountMenu((current) => !current);
 	}, []);
 	return (
 		<nav className="fixed z-40 w-full">
@@ -26,7 +31,11 @@ const Navbar = () => {
 					className="relative flex flex-row items-center gap-2 ml-8 cursor-pointer lg:hidden"
 				>
 					<p className="text-sm text-white">Browse</p>
-					<BsChevronDown className="text-white transition" />
+					<BsChevronDown
+						className={`text-white transition ${
+							showAccountMenu ? "rotate-180" : "rotate-0"
+						}`}
+					/>
 					<MobileMenu visible={showMobileMenu} />
 				</div>
 				<div className="flex flex-row items-center ml-auto gap-7">
@@ -36,12 +45,20 @@ const Navbar = () => {
 					<div className="text-gray-200 transition cursor-pointer hover:text-gray-300">
 						<BsBell />
 					</div>
-					<div className="relative flex flex-row items-center gap-2 cursor-pointer">
+
+					<div
+						onClick={toggleAccountMenu}
+						className="relative flex flex-row items-center gap-2 cursor-pointer"
+					>
 						<div className="w-6 h-6 overflow-hidden rounded-md lg:w-10 lg:h-10">
 							<img src="/images/default-blue.png" alt="Profile image" />
 						</div>
-						<BsChevronDown className="text-white transition" />
-						<AccountMenu visible />
+						<BsChevronDown
+							className={`text-white transition ${
+								showAccountMenu ? "rotate-180" : "rotate-0"
+							}`}
+						/>
+						<AccountMenu visible={showAccountMenu} />
 					</div>
 				</div>
 			</div>
