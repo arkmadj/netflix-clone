@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import MobileMenu from "./MobileMenu";
 import NavbarItem from "./NavbarItem";
-import { BsChevronDown } from "react-icons/bs";
+import { BsBell, BsChevronDown, BsSearch } from "react-icons/bs";
 
 const Navbar = () => {
 	const [showMobileMenu, setShowMobileMenu] = useState(false);
@@ -27,6 +27,20 @@ const Navbar = () => {
 					<p className="text-sm text-white">Browse</p>
 					<BsChevronDown className="text-white transition" />
 					<MobileMenu visible={showMobileMenu} />
+				</div>
+				<div className="flex flex-row items-center ml-auto gap-7">
+					<div className="text-gray-200 transition cursor-pointer hover:text-gray-300">
+						<BsSearch />
+					</div>
+					<div className="text-gray-200 transition cursor-pointer hover:text-gray-300">
+						<BsBell />
+					</div>
+					<div className="relative flex flex-row items-center gap-2 cursor-pointer">
+						<div className="w-6 h-6 overflow-hidden rounded-md lg:w-10 lg:h-10">
+							<img src="/images/default-blue.png" alt="Profile image" />
+						</div>
+						<BsChevronDown className="text-white transition" />
+					</div>
 				</div>
 			</div>
 		</nav>
