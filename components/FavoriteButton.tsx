@@ -1,10 +1,14 @@
-import React from 'react'
-import axios from 'axios'
+import React, { useCallback, useMemo } from "react";
+import axios from "axios";
+import useCurrentUser from "@/hooks/useCurrentUser";
+import useFavorites from "@/hooks/useFavorites";
 
-const FavoriteButton = () => {
-  return (
-    <div>FavoriteButton</div>
-  )
+interface FavoriteButtonProps {
+  movieId: string;
 }
 
-export default FavoriteButton
+const FavoriteButton:React.FC<FavoriteButtonProps> = ({movieId}) => {
+	return <div>FavoriteButton</div>;
+};
+
+export default FavoriteButton;
