@@ -11,6 +11,7 @@ export default async function handler(
 	try {
 		if (req.method === "POST") {
 			const { currentUser } = await serverAuth(req);
+
 			const { movieId } = req.body;
 
 			const existingMovie = await prismadb.movie.findUnique({
@@ -54,7 +55,7 @@ export default async function handler(
 
 			const updatedFavoriteIds = without(currentUser.favoriteIds, movieId);
 
-			const upatedUser = await prismadb.user.update({
+			const updatedUser = await prismadb.user.update({
 				where: {
 					email: currentUser.email || "",
 				},
@@ -63,12 +64,13 @@ export default async function handler(
 				},
 			});
 
-			return res.status(200).json(upatedUser);
+			return res.status(200).json(updatedUser);
 		}
 
-    return res.status(405).end()
+		return res.status(405).end();
 	} catch (error) {
 		console.log(error);
-		return res.status(400).end();
+
+		return res.status(500).end();
 	}
 }
