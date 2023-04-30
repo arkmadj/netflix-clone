@@ -29,7 +29,7 @@ export default function Home() {
 	const { data: favorites = [] } = useFavorites();
 	return (
 		<>
-			<InfoModal/>
+			<InfoModal visible onClose={() => {}}/>
 			<Navbar />
 			<Billboard />
 			<div className="pb-40">
