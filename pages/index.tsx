@@ -1,4 +1,5 @@
 import Billboard from "@/components/Billboard";
+import InfoModal from "@/components/InfoModal";
 import MovieList from "@/components/MovieList";
 import Navbar from "@/components/Navbar";
 import useFavorites from "@/hooks/useFavorites";
@@ -28,6 +29,7 @@ export default function Home() {
 	const { data: favorites = [] } = useFavorites();
 	return (
 		<>
+			<InfoModal/>
 			<Navbar />
 			<Billboard />
 			<div className="pb-40">
