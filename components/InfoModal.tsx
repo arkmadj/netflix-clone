@@ -49,10 +49,27 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
 						></video>
 						<div
 							className="absolute flex items-center justify-center w-10 h-10 bg-black rounded-full cursor-pointer top-3 right-3 bg-opacity-70"
-							onClick={() => {}}
+							onClick={() => {
+								handleClose;
+							}}
 						>
 							<AiOutlineClose className="text-white" size={20} />
 						</div>
+						<div className="absolute bottom-[10%] left-10">
+							<p className="h-full mb-8 text-3xl font-bold text-white md:text-4xl lg:text-5xl">
+								{data?.title}
+							</p>
+							<div className="flex flex-row items-center gap-4">
+								<PlayButton movieId={data?.id} />
+								<FavoriteButton movieId={data?.id} />
+							</div>
+						</div>
+					</div>
+					<div className="px-12 py-8">
+						<p className="text-lg font-semibold text-green-400">New</p>
+						<p className="text-lg text-white">{data?.duration}</p>
+						<p className="text-lg text-white">{data?.genre}</p>
+						<p className="text-lg text-white">{data?.description}</p>
 					</div>
 				</div>
 			</div>
