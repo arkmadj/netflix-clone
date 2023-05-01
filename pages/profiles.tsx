@@ -27,7 +27,7 @@ const Profiles = () => {
 		<div className="flex items-center justify-center h-full">
 			<div className="flex flex-col">
 				<h1 className="text-3xl text-center text-white md:text-6xl">
-					Whod is wfatdcghingd?
+					Whod is watdcghingd?
 				</h1>
 				<div className="flex items-center justify-center gap-8 mt-10">
 					<div onClick={() => router.push("/")}>
